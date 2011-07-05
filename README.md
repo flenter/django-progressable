@@ -9,7 +9,7 @@ See the example project for an example implementation.
 Installation
 ------------
 
-clone the repository and run the ``setup.py``
+clone the repository and run the ``setup.py``:
 
  git clone git@github.com:flenter/django-progressable.git
  cd django-progressable
@@ -22,7 +22,7 @@ To try the example, go to the example project folder and run:
 
     pip install -r conf/requirements.txt
 
-and: 
+and:
 
     pip install -r conf/dev_requirements.txt
 
@@ -39,7 +39,7 @@ For people who just want to know how to implement 'progressable' quick'n'dirty, 
 2. make sure you register your task by calling register_task(celery_task_instance, staff_required = True, hidden = False) will make sure it will be visible in the admin (the register_task can be found in progressable.utils namespace).
 3. update your task to update it's progress info as a status update. Note: this is why I've chosen for a Redisco dependency. It can be that tasks update themselves often. A traditional database doesn't look like it's the best solution for scenarios like this.
 
-Here's a sample implementation of a task::
+Here's a sample implementation of a task:
 
     from celery.task import task
     from time import sleep
