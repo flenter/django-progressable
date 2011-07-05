@@ -36,6 +36,7 @@ Or check two files from the example project.
 * `dashboard.py` This is a custom dashboard that includes the 'Task Status Information' module
 
 
+
 For people who just want to know how to implement 'progressable' quick'n'dirty, here's a short howto:
 
 1. make sure you have set up django and celery with redis. Set the CELERY_TASK_RESULT_EXPIRES variable in your settings. This is the timeout for the information in Redis.
