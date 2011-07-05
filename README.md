@@ -17,8 +17,7 @@ clone the repository and run the ``setup.py``:
     python setup.py install
 
 
-How to use this?
-================
+### How to use this?
 
 To try the example, go to the example project folder and run:
 
