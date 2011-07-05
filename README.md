@@ -28,6 +28,7 @@ and: ::
 
  pip install -r conf/dev_requirements.txt
 
+
 Or check two files from the example project.
 
 - `tsktsk/views.py` here a task is created and also a corresponding TaskStatus objects
@@ -44,10 +45,7 @@ Here's a sample implementation of a task::
 
  from celery.task import task
  from time import sleep
-<<<<<<< HEAD
  from progressable.states import PROGRESS
-=======
->>>>>>> e36da1902b017aede1bb1b38288b7dd4bd401156
 
  @task
  def add(x, y):
