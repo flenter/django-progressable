@@ -40,7 +40,9 @@ For people who just want to know how to implement 'progressable' quick'n'dirty, 
 
 1. make sure you have set up django and celery with redis. Set the CELERY_TASK_RESULT_EXPIRES variable in your settings. This is the timeout for the information in Redis.
 2. make sure you register your task by calling register_task(celery_task_instance, staff_required = True, hidden = False) will make sure it will be visible in the admin (the register_task can be found in progressable.utils namespace).
-3. update your task to update it's progress info as a status update. Note: this is why I've chosen for a Redisco dependency. It can be that tasks update themselves often. A traditional database doesn't look like it's the best solution for scenarios like this.
+3. update your task to update it's progress info as a status update. 
+
+Note: This continuous updating is why I've chosen for a Redis/Redisco implementation. The idea here is that tasks update themselves often, a scenario that doesn't look to be ideal for the traditional database.
 
 
 Here's a sample implementation of a task:
