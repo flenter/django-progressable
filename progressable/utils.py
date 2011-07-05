@@ -1,7 +1,5 @@
-#import uuid
-#import uuid
-
 from progressable.models import TaskStatus
+from progressable.states import PROGRESS
 
 def register_task(result, staff_required = False, hidden = True, title=''):
 
@@ -14,3 +12,10 @@ def register_task(result, staff_required = False, hidden = True, title=''):
     )
 
     return t_status
+
+class ProgressTaskMixin():
+    def update_progress(self, percentage):
+        self.update_state(
+                state = PROGRESS,
+                meta = {'completed': percentage}
+                )
