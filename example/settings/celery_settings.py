@@ -1,0 +1,23 @@
+import sys
+
+globals().update(vars(sys.modules['settings']))
+
+BROKER_HOST = '127.0.0.1'
+BROKER_PORT = 6379
+BROKER_BACKEND = 'redis'
+BROKER_USER = ''
+BROKER_VHOST = '0'
+
+REDIS_HOST = '127.0.0.1'
+REDIS_PORT = 6379
+REDIS_DB = 0
+REDIS_PASSWORD = ''
+REDIS_USER = ''
+
+REDIS_CONNECT_RETRY = True
+CELERY_SEND_EVENTS = True
+CELERY_RESULT_BACKEND = 'redis'
+CELERY_TASK_RESULT_EXPIRES = 60*60
+CELERYBEAT_SCHEDULAR = 'djcelery.schedulers.DatabaseScheduler'
+#CELERY_RESULT_PERSISTENT = True
+

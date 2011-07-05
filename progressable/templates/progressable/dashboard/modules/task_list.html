@@ -1,0 +1,34 @@
+{% extends "admin_tools/dashboard/module.html" %}
+{% load i18n %}
+{% block module_content %}
+    <ul>
+<<<<<<< HEAD
+    {% for child in module.children reversed %}
+=======
+    {% for child in module.children %}
+>>>>>>> e36da1902b017aede1bb1b38288b7dd4bd401156
+    <li rel="{% url api_dispatch_detail resource_name="task_status" pk=child.uid %}" class="{{child.status|lower}}">{{child}}<ul>
+      <li>{{child.publish_date}}</li>
+      <li class="percentage">{{child.percentage}}% completed</li>
+      <li>{{child.status}}</li>
+    </ul></li>
+    {% endfor %}
+    </ul><script type="text/javascript">
+    jQuery(document).ready(function(){
+        window.setInterval(function(){
+          $(".tscm_task_status .dashboard-module-content>ul>li:not(.success)").each(function(index, elm){
+
+            $.get(
+                $(elm).attr('rel'),
+                function(data){
+                    elm.className = "";
+                    $(elm).addClass(data.status.toLowerCase());
+                    $(".percentage", elm).html(data.percentage + "% completed");
+                }
+            );
+        });
+    }, 2000);
+
+  });</script>
+{% endblock %}
+
