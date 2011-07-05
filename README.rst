@@ -61,7 +61,6 @@ Here's a sample implementation of a task::
 
 
 
-
 On a final note:
 
 - setup.py does not install all extra required libraries at this moment so looking at the requirements files in the example project might be a good idea
