@@ -45,7 +45,7 @@ For people who just want to know how to implement 'progressable' quick'n'dirty, 
 Note: This continuous updating is why I've chosen for a Redis/Redisco implementation. The idea here is that tasks update themselves often, a scenario that doesn't look to be ideal for the traditional database.
 
 
-### A sample implementation of a task:
+#### A sample implementation of a task:
 
     from celery.task import task
     from time import sleep
@@ -62,7 +62,7 @@ Note: This continuous updating is why I've chosen for a Redis/Redisco implementa
       return x + y
 
 
-### On a final note:
+#### On a final note:
 
 * setup.py does not install all extra required libraries at this moment so looking at the requirements files in the example project might be a good idea
 * the current implementation is not suited for running multiple sites on the same redis db
