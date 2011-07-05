@@ -6,14 +6,16 @@ backend for celery and provides a restful api for the tasks.
 
 See the example project for an example implementation.
 
+
 Installation
 ------------
 
 clone the repository and run the ``setup.py``:
 
- git clone git@github.com:flenter/django-progressable.git
- cd django-progressable
- python setup.py install
+    git clone git@github.com:flenter/django-progressable.git
+    cd django-progressable
+    python setup.py install
+
 
 How to use this?
 ================
