@@ -19,3 +19,4 @@ class ProgressTaskMixin():
                 state = PROGRESS,
                 meta = {'completed': percentage}
                 )
+
