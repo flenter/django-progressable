@@ -29,7 +29,6 @@ def make_method_blocking(expires = 60 * 5, retry = True, register_params=[]):
     """
 
     def my_decorator(view_func):
-        print view_func
         @wraps(view_func)
         def wrapper(self, *args, **kwargs):
             current_class = self.__class__
@@ -37,41 +36,33 @@ def make_method_blocking(expires = 60 * 5, retry = True, register_params=[]):
     
             method = u""
     
-            print kwargs
             for param in register_params:
                 method += unicode(param) + u"=" + unicode(kwargs[param])
     
             digest = md5(method).hexdigest()
     
             lock_id = "%s-lock-%s" % (blocking_id, digest)
-            print method
     
             acquire_lock = lambda : cache.add(lock_id, 'true', expires)
     
             release_lock = lambda : cache.delete(lock_id)
     
             if acquire_lock():
-                print lock_id, "Lock acquired"
                 value = cache.get(lock_id)
                 try:
                     value = view_func(self, *args, **kwargs)
                 except Exception, e:
-                    print e
+                    pass
                 finally:
                     release_lock()
-                    print lock_id, "lock released"
                     return value
             else:
-                print lock_id, "Locked!!!!!!!!!!!!!!!!"
                 try:
                     raise BlockingError("Already running %s " % method)
                 except BlockingError, e:
                     if retry:
                         self.retry(exc=e)
-    
                     raise e
-    
-    
     
         return wrapper
 
