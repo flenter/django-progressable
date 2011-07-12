@@ -2,11 +2,7 @@
 {% load i18n %}
 {% block module_content %}
     <ul>
-<<<<<<< HEAD
     {% for child in module.children reversed %}
-=======
-    {% for child in module.children %}
->>>>>>> e36da1902b017aede1bb1b38288b7dd4bd401156
     <li rel="{% url api_dispatch_detail resource_name="task_status" pk=child.uid %}" class="{{child.status|lower}}">{{child}}<ul>
       <li>{{child.publish_date}}</li>
       <li class="percentage">{{child.percentage}}% completed</li>
@@ -24,6 +20,9 @@
                     elm.className = "";
                     $(elm).addClass(data.status.toLowerCase());
                     $(".percentage", elm).html(data.percentage + "% completed");
+                    if (data.status.toLowerCase() == "success") {
+                        $("li:last-child", elm).html(data.status);
+                    }
                 }
             );
         });
