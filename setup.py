@@ -25,7 +25,7 @@ try:
 except ImportError:
     install_requires.append('uuid')
 
-packages = find_packages(exclude=("core.*", "core", "settings", "conf", "tsktsk"))
+packages = find_packages(exclude=("core.*", "core", "settings", "conf", "tsktsk", 'example', 'example.*'))
 
 setup(
         name="django-progressable",
