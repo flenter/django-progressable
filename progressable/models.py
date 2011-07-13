@@ -2,7 +2,6 @@ from celery.states import EXCEPTION_STATES, READY_STATES
 from redisco import models
 
 from progressable.fields import UUIDField
-<<<<<<< HEAD
 from progressable.states import PROGRESS
 
 class TaskStatus(models.Model):
