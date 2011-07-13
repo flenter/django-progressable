@@ -5,9 +5,6 @@ from progressable.fields import UUIDField
 <<<<<<< HEAD
 from progressable.states import PROGRESS
 
-=======
->>>>>>> e36da1902b017aede1bb1b38288b7dd4bd401156
-
 class TaskStatus(models.Model):
     staff_required = models.BooleanField(default=True)
     hidden = models.BooleanField(default=False)
@@ -42,11 +39,6 @@ class TaskStatus(models.Model):
         result = self.get_result()
         if result.ready():
             return 100
-<<<<<<< HEAD
         if result.state == PROGRESS:
-=======
-        if result.state == "PROGRESS":
->>>>>>> e36da1902b017aede1bb1b38288b7dd4bd401156
             return result.info.get('completed', -1)
-        
         return -1
