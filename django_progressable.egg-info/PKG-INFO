@@ -1,0 +1,22 @@
+Metadata-Version: 1.0
+Name: django-progressable
+Version: 0.3
+Summary: Create celery tasks that can be visible in the admin.
+Home-page: https://github.com/flenter/django-progressable/
+Author: Jacco Flenter @ Secret Code Machine
+Author-email: jacco(_AT_)secretcodemachine.com
+License: BSD
+Description: 
+                Create tasks that can show up in the admin interface. It assumes redis 
+                is the backend for celery and provides a restful api to the tasks.
+        
+                Note: if you get an exception in the admin (complaining about an index
+                out of range), please use the patched version of redisco from github:
+                https://github.com/flenter/redisco/
+        
+                See the example project for all dependencies
+                
+Keywords: redis,celery,django,tastypie,admin,tools,redisco,json
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: BSD License
