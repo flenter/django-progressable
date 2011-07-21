@@ -34,7 +34,7 @@ setup(
         author="Jacco Flenter @ Secret Code Machine",
         author_email="jacco(_AT_)secretcodemachine.com",
         dependency_links = ["http://github.com/flenter/redisco/tarball/master#egg=redisco-0.1.3-datefix"],
-        install_requires = ['redisco ==0.1.3-datefix','tastypie >=0.9.9',],
+        install_requires = ['redisco ==0.1.3-datefix','django-tastypie >=0.9.9',],
         packages = packages,
         data_files = data_files,
         zip_safe = False,
