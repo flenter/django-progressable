@@ -33,10 +33,11 @@ setup(
         description="Create celery tasks that can be visible in the admin.",
         author="Jacco Flenter @ Secret Code Machine",
         author_email="jacco(_AT_)secretcodemachine.com",
-        dependency_links = ["http://github.com/flenter/redisco/tarball/master#egg=redisco-1.1.3-datefix"],
-        install_requires = ['redisco',],
+        dependency_links = ["http://github.com/flenter/redisco/tarball/master#egg=redisco-0.1.3-datefix"],
+        install_requires = ['redisco ==0.1.3-datefix',],
         packages = packages,
         data_files = data_files,
+        zip_safe = False,
         include_package_data=True,
         long_description = """
         Create tasks that can show up in the admin interface. It assumes redis 

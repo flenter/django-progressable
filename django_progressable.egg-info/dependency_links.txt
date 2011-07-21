@@ -1,1 +1,0 @@
-http://github.com/flenter/redisco/tarball/master#egg=redisco-1.1.3-datefix
