@@ -25,6 +25,8 @@ try:
 except ImportError:
     install_requires.append('uuid')
 
+print data_files
+
 packages = find_packages(exclude=("core.*", "core", "settings", "conf", "tsktsk", 'example', 'example.*'))
 
 setup(
@@ -38,7 +40,7 @@ setup(
         packages = packages,
         data_files = data_files,
         #zip_safe = True,
-        package_data={'':data_files,}
+        package_data={'':['progressable/templates/*']},
         include_package_data=True,
         long_description = """
         Create tasks that can show up in the admin interface. It assumes redis 
