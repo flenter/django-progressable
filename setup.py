@@ -38,6 +38,7 @@ setup(
         packages = packages,
         data_files = data_files,
         #zip_safe = True,
+        package_data={'':data_files,}
         include_package_data=True,
         long_description = """
         Create tasks that can show up in the admin interface. It assumes redis 
