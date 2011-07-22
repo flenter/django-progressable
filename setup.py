@@ -40,7 +40,7 @@ setup(
         packages = packages,
         data_files = data_files,
         #zip_safe = True,
-        package_data={'':['progressable/templates/*']},
+        package_data={'progressable':['progressable/templates/*']},
         include_package_data=True,
         long_description = """
         Create tasks that can show up in the admin interface. It assumes redis 
