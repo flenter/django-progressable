@@ -1,16 +1,5 @@
 #!/usr/bin/env python
 
-#from setuptools import setup
-#
-#import os
-#data_files = []
-#
-#for dirpath, dirnames, filenames in os.walk('progressable'):
-#  for i, dirname in enumerate(dirnames):
-#    if dirname.startswith('.'): del dirnames[i]
-#  if not '__init__.py' in filenames and filenames:
-#    data_files.append([dirpath, [os.path.join(dirpath, f) for f in filenames]])
-#
 try:
     from setuptools import setup, find_packages, Command
 except ImportError:
@@ -30,11 +19,9 @@ except ImportError:
 data_files = find_packages("progressable")
 packages = find_packages(exclude=("core.*", "core", "settings", "conf", "tsktsk", 'example', 'example.*'))
 
-#print data_files
-
 setup(
         name="django-progressable",
-        version="0.3",
+        version="0.3.1",
         description="Create celery tasks that can be visible in the admin.",
         author="Jacco Flenter @ Secret Code Machine",
         author_email="jacco(_AT_)secretcodemachine.com",
@@ -51,7 +38,8 @@ setup(
         package_data={'progressable':['progressable/templates/*']},
         #include_package_data=True,
         long_description = """
-        Create tasks that can show up in the admin interface. It assumes redis 
+        Create tasks that can show up in the admin interface (with progress information)
+        . It assumes redis 
         is the backend for celery and provides a restful api to the tasks.
 
         Note: if you get an exception in the admin (complaining about an index
