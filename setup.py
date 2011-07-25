@@ -1,14 +1,16 @@
-from setuptools import setup
+#!/usr/bin/env python
 
-import os
-data_files = []
-
-for dirpath, dirnames, filenames in os.walk('progressable'):
-  for i, dirname in enumerate(dirnames):
-    if dirname.startswith('.'): del dirnames[i]
-  if not '__init__.py' in filenames and filenames:
-    data_files.append([dirpath, [os.path.join(dirpath, f) for f in filenames]])
-
+#from setuptools import setup
+#
+#import os
+#data_files = []
+#
+#for dirpath, dirnames, filenames in os.walk('progressable'):
+#  for i, dirname in enumerate(dirnames):
+#    if dirname.startswith('.'): del dirnames[i]
+#  if not '__init__.py' in filenames and filenames:
+#    data_files.append([dirpath, [os.path.join(dirpath, f) for f in filenames]])
+#
 try:
     from setuptools import setup, find_packages, Command
 except ImportError:
@@ -25,9 +27,10 @@ try:
 except ImportError:
     install_requires.append('uuid')
 
-print data_files
-
+data_files = find_packages("progressable")
 packages = find_packages(exclude=("core.*", "core", "settings", "conf", "tsktsk", 'example', 'example.*'))
+
+#print data_files
 
 setup(
         name="django-progressable",
@@ -35,10 +38,15 @@ setup(
         description="Create celery tasks that can be visible in the admin.",
         author="Jacco Flenter @ Secret Code Machine",
         author_email="jacco(_AT_)secretcodemachine.com",
-        dependency_links = ["http://github.com/flenter/redisco/tarball/master#egg=redisco-0.1.3-datefix"],
-        install_requires = ['redisco ==0.1.3-datefix','django-tastypie >=0.9.9',],
+        dependency_links = [
+            "http://github.com/flenter/redisco/tarball/master#egg=redisco-0.1.3-datefix",
+        ],
+        install_requires = [
+            'redisco ==0.1.3-datefix',
+            'django-tastypie >=0.9.9',
+        ],
         packages = packages,
-        data_files = data_files,
+        #data_files = data_files,
         zip_safe = False,
         package_data={'progressable':['progressable/templates/*']},
         include_package_data=True,
