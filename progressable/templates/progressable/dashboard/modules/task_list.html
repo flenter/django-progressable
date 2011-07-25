@@ -1,7 +1,8 @@
 {% extends "admin_tools/dashboard/module.html" %}
 {% load i18n %}
 {% block module_content %}
-    <ul>
+<ul>
+    {% if module and module.children %}
     {% for child in module.children reversed %}
     <li rel="{% url api_dispatch_detail resource_name="task_status" pk=child.uid %}" class="{{child.status|lower}}">{{child}}<ul>
       <li>{{child.publish_date}}</li>
@@ -9,7 +10,7 @@
       <li>{{child.status}}</li>
     </ul></li>
     {% endfor %}
-    </ul><script type="text/javascript">
+    </ul>{% endif %}<script type="text/javascript">
     jQuery(document).ready(function(){
         window.setInterval(function(){
           $(".tscm_task_status .dashboard-module-content>ul>li:not(.success)").each(function(index, elm){
