@@ -39,7 +39,7 @@ setup(
         install_requires = ['redisco ==0.1.3-datefix','django-tastypie >=0.9.9',],
         packages = packages,
         data_files = data_files,
-        #zip_safe = True,
+        zip_safe = False,
         package_data={'progressable':['progressable/templates/*']},
         include_package_data=True,
         long_description = """
