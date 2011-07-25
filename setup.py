@@ -49,7 +49,7 @@ setup(
         #data_files = data_files,
         zip_safe = False,
         package_data={'progressable':['progressable/templates/*']},
-        include_package_data=True,
+        #include_package_data=True,
         long_description = """
         Create tasks that can show up in the admin interface. It assumes redis 
         is the backend for celery and provides a restful api to the tasks.
