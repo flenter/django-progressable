@@ -33,8 +33,10 @@ class TaskStatusResource(Resource):
         return self._build_reverse_url("api_dispatch_detail", kwargs=kwargs)
 
     def obj_get(self, request=None, **kwargs):
-        return self._meta.object_class.objects.filter(uid=kwargs['pk'])[0]
-
+        try:
+            return self._meta.object_class.objects.filter(uid=kwargs['pk'])[0]
+        except IndexError:
+            raise Http404
 
 
 
