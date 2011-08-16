@@ -1,19 +1,10 @@
-from celery.states import EXCEPTION_STATES, READY_STATES
+#from celery.states import EXCEPTION_STATES, READY_STATES
 from redisco import models
 
-from progressable.fields import UUIDField
+from progressable.fields import UUIDField, UUIDField2
 from progressable.states import PROGRESS
 
-class TaskStatus(models.Model):
-    staff_required = models.BooleanField(default=True)
-    hidden = models.BooleanField(default=False)
-    uid = UUIDField()
-    task_id = models.CharField()
-    publish_date = models.DateTimeField(auto_now_add = True, indexed=True)
-    task_name = models.CharField(max_length = 1000)
-    title = models.CharField()
-    _result = None
-
+class TaskStatusMixin(object):
     def __unicode__(self):
         if self.title:
             return unicode(self.title)
@@ -41,3 +32,30 @@ class TaskStatus(models.Model):
         if result.state == PROGRESS:
             return result.info.get('completed', -1)
         return -1
+
+class TaskStatus(models.Model, TaskStatusMixin):
+    staff_required = models.BooleanField(default=True)
+    hidden = models.BooleanField(default=False)
+    uid = UUIDField()
+    task_id = models.CharField()
+    publish_date = models.DateTimeField(auto_now_add = True, indexed=True)
+    task_name = models.CharField(max_length = 1000)
+    title = models.CharField()
+    _result = None
+
+
+# small test for stdnet support. Unfortunately stdnet didn't seem to really support 
+# complex enough queries (such as filtering on datetime)
+#from stdnet import orm
+#from datetime import datetime
+#class TaskStatus2(orm.StdModel, TaskStatusMixin):
+#    staff_required = orm.BooleanField(default=True)
+#    hidden = orm.BooleanField(default=True)
+#    uid = UUIDField2()
+#    task_name = orm.SymbolField()
+#    title = orm.SymbolField()
+#    task_id = orm.SymbolField()
+#    publish_date = orm.DateTimeField(default=datetime.now, index=True)
+#    _result = None
+#
+#orm.register(TaskStatus2, 'redis://localhost:6379/?db=13')

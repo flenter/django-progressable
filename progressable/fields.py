@@ -15,3 +15,11 @@ class UUIDField(models.Attribute):
             default = uuid4
 
         super(UUIDField, self).__init__(name=name, indexed = indexed, required=required, validator = validator, unique = unique, default = default)
+
+from stdnet import orm
+
+class UUIDField2(orm.SymbolField):
+    def __init__(self, default=None, unique=True, *args, **kwargs):
+        if not default:
+            default = uuid4
+        super(UUIDField2, self).__init__(default=default, unique=unique, *args, **kwargs)

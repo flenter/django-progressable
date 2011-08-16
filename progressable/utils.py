@@ -1,4 +1,4 @@
-from progressable.models import TaskStatus
+from progressable.models import TaskStatus as TaskStatus
 from progressable.states import PROGRESS
 
 def register_task(result, staff_required = False, hidden = True, title=''):
@@ -10,6 +10,8 @@ def register_task(result, staff_required = False, hidden = True, title=''):
         task_name = result.task_name,
         title=title
     )
+
+    t_status.save()
 
     return t_status
 
