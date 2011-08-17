@@ -14,8 +14,6 @@ class TaskStatusModule(DashboardModule):
         self.css_classes.append("tscm_task_status")
 
     def init_with_context(self, context):
-        request = context['request']
-
         from progressable.models import TaskStatus
 
         from datetime import timedelta, datetime
@@ -30,4 +28,24 @@ class TaskStatusModule(DashboardModule):
     def is_empty():
       return False
 
-   
+    def get_id(self):
+        return_value = super(RedisStatusModule, self).get_id()
+        print return_value, self
+        return return_value
+
+class RedisStatusModule(DashboardModule):
+    title = _('Redis status')
+    template = 'progressable/dashboard/modules/redis_status.html'
+    layout = 'stacked'
+    
+    def init_with_context(self, context):
+        from redis import Redis
+
+        db = Redis()
+
+        self.children = [db.info()]
+
+    def get_id(self):
+        return_value = super(RedisStatusModule, self).get_id()
+        print return_value, self
+        return return_value

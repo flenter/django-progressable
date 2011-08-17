@@ -30,6 +30,7 @@ setup(
         ],
         install_requires = [
             'redisco ==0.1.3-datefix',
+            #'python-stdnet',
             'django-tastypie >=0.9.9',
         ],
         packages = packages,

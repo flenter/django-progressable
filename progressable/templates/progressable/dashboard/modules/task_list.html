@@ -8,9 +8,10 @@
       <li>{{child.publish_date}}</li>
       <li class="percentage">{{child.percentage}}% completed</li>
       <li>{{child.status}}</li>
-    </ul></li>
+  </ul></li>
     {% endfor %}
-    </ul>{% endif %}<script type="text/javascript">
+    {% endif %}</ul>
+<script type="text/javascript">
     jQuery(document).ready(function(){
         window.setInterval(function(){
           $(".tscm_task_status .dashboard-module-content>ul>li:not(.success)").each(function(index, elm){
@@ -24,11 +25,10 @@
                     if (data.status.toLowerCase() == "success") {
                         $("li:last-child", elm).html(data.status);
                     }
-                }
-            );
-        });
-    }, 2000);
-
-  });</script>
+                });
+            });
+        }, 2000);
+    });
+</script>
 {% endblock %}
 

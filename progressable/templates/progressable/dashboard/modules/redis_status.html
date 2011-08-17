@@ -1,0 +1,18 @@
+{% extends "admin_tools/dashboard/module.html" %}
+{% load i18n %}
+{% block module_content %}
+{% for info in module.children %}
+<h3>{% trans "Generic information" %}</h3>
+<ul>
+<li><span class="float-right">{{info.redis_version}}</span>{% trans "Redis version" %}</li>
+<li><span class="float-right">{{info.used_memory_human}}</span>{% trans "Used memory" %}</li>
+<li><span class="float-right">{{info.uptime_in_days}}</span>{% trans "Uptime in days"%}</li>
+</ul>
+<h3>{% trans "Connection statistics" %}</h3>
+<ul>
+<li><span class="float-right">{{info.total_commands_processed}}</span>{% trans "Total commands processed" %}</li>
+<li><span class="float-right">{{info.total_connections_received}}</span>{% trans "Total connections received" %}</li>
+<li><span class="float-right">{{info.connected_clients}}</span>{% trans "Connected clients" %}</li></ul>
+{% endfor %}
+{% endblock %}
+
