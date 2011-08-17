@@ -5,7 +5,7 @@
     {% if module and module.children %}
     {% for child in module.children reversed %}
     <li rel="{% url api_dispatch_detail resource_name="task_status" pk=child.uid %}" class="{{child.status|lower}}">{{child}}<ul>
-      <li>{{child.publish_date}}</li>
+      <li>{{child.publish_date|date:"SHORT_DATETIME_FORMAT"}}</li>
       <li class="percentage">{{child.percentage}}% completed</li>
       <li>{{child.status}}</li>
   </ul></li>
