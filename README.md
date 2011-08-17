@@ -64,12 +64,9 @@ Note: This continuous updating is why I've chosen for a Redis/Redisco implementa
 
 #### On a final note:
 
-* setup.py does not install all extra required libraries at this moment so looking at the requirements files in the example project might be a good idea
-* the current implementation is not suited for running multiple sites on the same redis db
-* old TaskStatus objects are not removed from redis, i.e. there's no task 
-  status cleanup yet. However redis can do this for us. Or maybe a new task should be created that periodically cleans up information. But implementing this could be a bit application spicific (unless we create a generic taskstatus sweeper task).
-* The jquery code for the django-admin is inline, this should be done more 
+* the current implementation is not suited for running multiple sites on the same redis db. In fact there's little control over which db etc the information is stored
+ * The jquery code for the django-admin is inline, this should be done more 
   nicely
-* the admin module is not multi-langual yet (or at least not tested).
+* the admin module is not really multi-langual yet (and might never fully be because the title of a taskstatus object is generated when it is created ).
 
 
