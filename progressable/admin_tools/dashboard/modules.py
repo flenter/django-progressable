@@ -28,11 +28,6 @@ class TaskStatusModule(DashboardModule):
     def is_empty():
       return False
 
-    def get_id(self):
-        return_value = super(RedisStatusModule, self).get_id()
-        print return_value, self
-        return return_value
-
 class RedisStatusModule(DashboardModule):
     title = _('Redis status')
     template = 'progressable/dashboard/modules/redis_status.html'
@@ -45,7 +40,3 @@ class RedisStatusModule(DashboardModule):
 
         self.children = [db.info()]
 
-    def get_id(self):
-        return_value = super(RedisStatusModule, self).get_id()
-        print return_value, self
-        return return_value
