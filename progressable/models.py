@@ -1,7 +1,6 @@
-#from celery.states import EXCEPTION_STATES, READY_STATES
 from redisco import models
 
-from progressable.fields import UUIDField, UUIDField2
+from progressable.fields import UUIDField#, UUIDField2
 from progressable.states import PROGRESS
 
 class TaskStatusMixin(object):
