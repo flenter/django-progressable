@@ -37,7 +37,7 @@ class TaskStatusResource(Resource):
             return self._meta.object_class.objects.filter(uid=kwargs['pk'])[0]
         except IndexError:
             from tastypie.exceptions import NotFounda
-            raise NotFound("Sorry, not found."
+            raise NotFound("Sorry, not found.")
             #raise Http404
 
 
