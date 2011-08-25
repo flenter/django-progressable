@@ -37,7 +37,7 @@ setup(
         #data_files = data_files,
         zip_safe = False,
         package_data={'progressable':['progressable/templates/*']},
-        #include_package_data=True,
+        include_package_data=True,
         long_description = """
         Create tasks that can show up in the admin interface (with progress information)
         . It assumes redis 
