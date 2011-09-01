@@ -23,7 +23,7 @@ class TaskStatusModule(DashboardModule):
 
         tasks = TaskStatus.objects.order('-publish_date').zfilter(publish_date__gt = youngest).exclude(hidden=True)
 
-        self.children = tasks[:10]
+        self.children = tasks[-10:]
 
     def is_empty():
       return False
