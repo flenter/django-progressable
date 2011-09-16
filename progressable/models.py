@@ -40,6 +40,7 @@ class TaskStatus(models.Model, TaskStatusMixin):
     publish_date = models.DateTimeField(auto_now_add = True, indexed=True)
     task_name = models.CharField(max_length = 1000)
     title = models.CharField()
+    site = models.CharField()
     _result = None
 
 
