@@ -21,9 +21,20 @@ class TaskStatusModule(DashboardModule):
 
         youngest = datetime.now() - timedelta(seconds= settings.CELERY_TASK_RESULT_EXPIRES)
 
+        from django.contrib.sites.models import Site
+
+        site = Site.objects.get_current().domain
+
         tasks = TaskStatus.objects.order('-publish_date').zfilter(publish_date__gt = youngest).exclude(hidden=True)
 
-        self.children = tasks[-10:]
+        filtered_tasks = []
+        for task in tasks:
+            if task.site == site:
+                filtered_tasks.append(task)
+                if len(filtered_tasks) == 10:
+                    break
+                
+        self.children = filtered_tasks
 
     def is_empty():
       return False
