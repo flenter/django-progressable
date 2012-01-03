@@ -1,10 +1,11 @@
 Introduction
 ============
 
-Create tasks that can show up in the admin interface. It assumes redis is the 
-backend for celery (for the example project: it is assumed that redis is already 
-installed and running). The app also provides hooks to provides a restful api 
-for the tasks.
+Create tasks that can show up in the admin interface. It relies on a couple of things:
+* redis (installed and running). 
+* django-admin-tools (for displaying content in the admin)
+* django-celery
+* tastypie (for supplying task information via a RESTful api)
 
 See the example project for an example implementation.
 

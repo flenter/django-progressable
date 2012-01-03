@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
 try:
-    from setuptools import setup, find_packages, Command
+    from setuptools import setup, find_packages
 except ImportError:
     from ez_setup import use_setuptools
     use_setuptools()
-    from setuptools import setup, find_packages, Command
+    from setuptools import setup, find_packages
 
 from setuptools import findall
 files = findall()
@@ -16,7 +16,6 @@ try:
 except ImportError:
     install_requires.append('uuid')
 
-#data_files = find_packages("progressable")
 packages = find_packages(exclude=("core.*", "core", "settings", "conf", "tsktsk", 'example', 'example.*'))
 
 setup(
@@ -31,11 +30,9 @@ setup(
         install_requires = [
             'redisco ==0.1.3-datefix',
             'django-tastypie >=0.9.9',
+            'django-celery>=2.5.2',
         ],
         packages = packages,
-        #data_files = data_files,
-        #zip_safe = False,
-        #package_data={'progressable':['progressable/templates/*']},
         include_package_data=True,
         long_description = """
         Create tasks that can show up in the admin interface (with progress information)
