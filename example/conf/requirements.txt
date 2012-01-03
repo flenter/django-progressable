@@ -13,4 +13,6 @@ redis>=2.4.5
 celery>=2.2.7
 django-redis-cache>=0.6.0 # if you get an error on self._cache.disconnect change it to disconnect from the pool
 git+git://github.com/flenter/redisco.git
+hg+ssh://hg@bitbucket.org/dpaccoud/django-redis-sessions#egg=django-redis-sessions
 #django-redis-sessions>=0.1
+django-celery==0.1.9

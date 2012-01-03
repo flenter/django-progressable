@@ -16,12 +16,12 @@ try:
 except ImportError:
     install_requires.append('uuid')
 
-data_files = find_packages("progressable")
+#data_files = find_packages("progressable")
 packages = find_packages(exclude=("core.*", "core", "settings", "conf", "tsktsk", 'example', 'example.*'))
 
 setup(
         name="django-progressable",
-        version="0.3.1",
+        version=".".join(map(str, __import__('progressable').__version__)),
         description="Create celery tasks that can be visible in the admin.",
         author="Jacco Flenter @ Secret Code Machine",
         author_email="jacco(_AT_)secretcodemachine.com",
@@ -30,13 +30,12 @@ setup(
         ],
         install_requires = [
             'redisco ==0.1.3-datefix',
-            #'python-stdnet',
             'django-tastypie >=0.9.9',
         ],
         packages = packages,
         #data_files = data_files,
-        zip_safe = False,
-        package_data={'progressable':['progressable/templates/*']},
+        #zip_safe = False,
+        #package_data={'progressable':['progressable/templates/*']},
         include_package_data=True,
         long_description = """
         Create tasks that can show up in the admin interface (with progress information)
@@ -55,6 +54,7 @@ setup(
         classifiers = [
           "Development Status :: 3 - Alpha",
           "License :: OSI Approved :: BSD License",
+          "Operating System :: OS Independent",
         ],
     )
 

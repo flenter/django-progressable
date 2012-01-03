@@ -29,8 +29,8 @@ class TaskStatusMixin(object):
         if result.ready():
             return 100
         if result.state == PROGRESS:
-            return result.info.get('completed', -1)
-        return -1
+            return result.info.get('completed', 0)
+        return 0
 
 class TaskStatus(models.Model, TaskStatusMixin):
     staff_required = models.BooleanField(default=True)

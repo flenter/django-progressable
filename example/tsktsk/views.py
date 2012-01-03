@@ -11,8 +11,17 @@ class StartTaskView(TemplateView):
 
         from progressable.utils import register_task
 
-        t = register_task(result, title = "Test task", hidden=False)
+        t = register_task(result, title = "Test task (not hidden)", hidden=False)
         t.save()
+
+        t = register_task(result, title = "Test task (hidden)", hidden=True)
+        t.save()
+
+
+        from django.contrib.sites.models import Site
+
+        t = register_task(result, title="Tesk task (not for this site)", hidden=False, site=Site.objects.get(pk=2))
+
         print t.uid, t.id
 
         context = super(StartTaskView, self).get_context_data(**kwargs)

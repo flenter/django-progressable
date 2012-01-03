@@ -25,7 +25,7 @@ class TaskStatusResource(Resource):
         if isinstance(bundle_or_obj, Bundle):
             kwargs['pk'] = bundle_or_obj.obj.uid
         else:
-            kwargs['pk'] = bunde_or_obj.uid
+            kwargs['pk'] = bundle_or_obj.uid
 
         if self._meta.api_name is not None:
             kwargs['api_name'] = self._meta.api_name
@@ -36,7 +36,7 @@ class TaskStatusResource(Resource):
         try:
             return self._meta.object_class.objects.filter(uid=kwargs['pk'])[0]
         except IndexError:
-            from tastypie.exceptions import NotFounda
+            from tastypie.exceptions import NotFound
             raise NotFound("Sorry, not found.")
             #raise Http404
 

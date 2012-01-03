@@ -81,11 +81,16 @@ class CustomIndexDashboard(Dashboard):
                 },
             ]
         ))
-        from progressable.admin_tools.dashboard.modules import TaskStatusModule
+        from progressable.admin_tools.dashboard.modules import TaskStatusModule, RedisStatusModule
 
         self.children.append(
             TaskStatusModule(
                 _('Task status information'),
+            )
+        )
+        self.children.append(
+            RedisStatusModule(
+                _('Redis status information'),
             )
         )
 
