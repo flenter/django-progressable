@@ -2,7 +2,9 @@ Introduction
 ============
 
 Create tasks that can show up in the admin interface. It assumes redis is the 
-backend for celery and provides a restful api for the tasks.
+backend for celery (for the example project: it is assumed that redis is already 
+installed and running). The app also provides hooks to provides a restful api 
+for the tasks.
 
 See the example project for an example implementation.
 
@@ -23,16 +25,22 @@ To try the example, go to the example project folder and run:
 
     pip install -r conf/requirements.txt
 
-and:
+and (assuming the example project will be run via manage.py runserver):
 
     pip install -r conf/dev_requirements.txt
+
+After that the usual two commands:
+
+    python manage.py syncdb
+    python manage.py migrate
 
 
 Or check two files from the example project.
 
-* `tsktsk/views.py` here a task is created and also a corresponding TaskStatus objects
+* `tsktsk/views.py` here some task are created with their corresponding TaskStatus objects
 * `tsktsk/tasks.py` contains a task that updates itself on its progress
-* `dashboard.py` This is a custom dashboard that includes the 'Task Status Information' module
+* `dashboard.py` This is a custom dashboard that includes the 'Task Status Information' 
+and 'Redis status information' module
 
 
 
