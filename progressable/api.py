@@ -11,7 +11,6 @@ class TaskStatusResource(Resource):
     status = fields.CharField(attribute="status")
     percentage = fields.FloatField(attribute="percentage")
 
-
     class Meta:
         resource_name = 'task_status'
         object_class = TaskStatus
@@ -33,13 +32,12 @@ class TaskStatusResource(Resource):
         return self._build_reverse_url("api_dispatch_detail", kwargs=kwargs)
 
     def obj_get(self, request=None, **kwargs):
+
         try:
             return self._meta.object_class.objects.filter(uid=kwargs['pk'])[0]
+
         except IndexError:
+
             from tastypie.exceptions import NotFound
+
             raise NotFound("Sorry, not found.")
-            #raise Http404
-
-
-
-

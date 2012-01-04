@@ -6,6 +6,9 @@ admin.autodiscover()
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+import nexus
+nexus.autodiscover()
+
 
 urlpatterns = patterns('',
     # Examples:
@@ -20,7 +23,8 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin_tools', include('admin_tools.urls')),
-    url(r'^admin/', include(admin.site.urls)),
+#    url(r'^admin/', include(admin.site.urls)),
+    url(r'^nexus/', include(nexus.site.urls)),
     url(r'^sentry/', include('sentry.urls')),
     #url(r'^redis-monitor/$', 'django_redis_monitor.views.monitor'),
 ) + staticfiles_urlpatterns()

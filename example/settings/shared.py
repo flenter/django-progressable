@@ -61,6 +61,8 @@ INSTALLED_APPS = (
     'south',
     'reversion',
     'djcelery',
+    'nexus',
+    'gargoyle',
 #    'piston',
 #    'sitetree',
 #    'djutils',
