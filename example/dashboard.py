@@ -5,9 +5,6 @@ You can customize these classes as you want.
 
 To activate your index dashboard add the following to your settings.py::
     ADMIN_TOOLS_INDEX_DASHBOARD = 'experiment.dashboard.CustomIndexDashboard'
-
-And to activate the app index dashboard::
-    ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'experiment.dashboard.CustomAppIndexDashboard'
 """
 
 from django.utils.translation import ugettext_lazy as _

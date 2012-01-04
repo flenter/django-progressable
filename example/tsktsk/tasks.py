@@ -4,6 +4,7 @@ from time import sleep
 
 from progressable.states import PROGRESS
 
+
 @task
 def add(x,y):
 
@@ -13,5 +14,3 @@ def add(x,y):
         sleep(1)
 
     return x + y
-
-
