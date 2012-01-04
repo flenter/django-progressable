@@ -6,11 +6,12 @@ from progressable.states import PROGRESS
 
 
 @task
-def add(x,y):
-
+def add(x, y):
     for i in range(100):
         add.update_state(state=PROGRESS,
-            meta={"completed":i})
+            meta={
+                "completed": i
+            })
         sleep(1)
 
     return x + y

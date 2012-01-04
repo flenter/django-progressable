@@ -50,13 +50,6 @@ class CustomIndexDashboard(Dashboard):
         # append a recent actions module
         self.children.append(modules.RecentActions(_('Recent Actions'), 5))
 
-        # append a feed module
-#        self.children.append(modules.Feed(
-#            _('Latest Django News'),
-#            feed_url='http://www.djangoproject.com/rss/weblog/',
-#            limit=5
-#        ))
-
         # append another link list module for "support".
         self.children.append(modules.LinkList(
             _('Support'),
@@ -78,7 +71,10 @@ class CustomIndexDashboard(Dashboard):
                 },
             ]
         ))
-        from progressable.admin_tools.dashboard.modules import TaskStatusModule, RedisStatusModule
+
+        from progressable.admin_tools.dashboard.modules import \
+                TaskStatusModule, \
+                RedisStatusModule
 
         self.children.append(
             TaskStatusModule(

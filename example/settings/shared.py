@@ -25,8 +25,6 @@ MEDIA_URL = '/media/'
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
 TEMPLATE_DIRS += (
-    os.path.join(SITE_ROOT, 'customcore', 'templates'),
-    os.path.join(SITE_ROOT, 'core', 'templates'),
     os.path.join(SITE_ROOT, 'progressable', 'templates'),
     os.path.join(SITE_ROOT, 'templates'),
 )
@@ -61,16 +59,8 @@ INSTALLED_APPS = (
     'south',
     'reversion',
     'djcelery',
-    'nexus',
-    'gargoyle',
-#    'piston',
-#    'sitetree',
-#    'djutils',
-#    'staticgenerator',
     'tastypie',
-    'core',
     'progressable',
-#    'customcore',
 )
 
 import sys
